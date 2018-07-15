@@ -36,6 +36,7 @@
     "preset": "jest-expo",
     "^components(.*)$": "<rootDir>/src/components$1",
     "^constants(.*)$": "<rootDir>/src/constants$1",
+    "^hoc(.*)$": "<rootDir>/src/hoc$1",
     "^screens(.*)$": "<rootDir>/src/screens$1",
     "^utils(.*)$": "<rootDir>/src/utils$1"
   },

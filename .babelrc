@@ -11,6 +11,7 @@
       "alias": {
         "components": "./src/components",
         "constants": "./src/constants",
+        "hoc": "./src/hoc",
         "screens": "./src/screens",
         "utils": "./src/utils"
       }
