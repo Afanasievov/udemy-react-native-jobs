@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "babel-plugin-module-resolver": "^3.1.1",
     "eslint": "^5.1.0",
     "eslint-config-airbnb": "^17.0.0",
+    "eslint-import-resolver-babel-module": "^4.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
@@ -31,7 +33,11 @@
     ]
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "^components(.*)$": "<rootDir>/src/components$1",
+    "^constants(.*)$": "<rootDir>/src/constants$1",
+    "^screens(.*)$": "<rootDir>/src/screens$1",
+    "^utils(.*)$": "<rootDir>/src/utils$1"
   },
   "dependencies": {
     "expo": "^27.0.1",
