@@ -4,12 +4,12 @@ import { View, Text, Platform } from 'react-native';
 import { Button } from 'react-native-elements';
 
 class Review extends Component {
-  static navigationOptions = navigation => ({
+  static navigationOptions = ({ navigation }) => ({
     title: 'Review Jobs',
     headerRight: (
       <Button
         title="Settings"
-        onPress={() => navigation.navigation.navigate('settings')}
+        onPress={() => navigation.navigate('settings')}
         backgroundColor="rgba(0,0,0,0)"
         color="rgba(0, 122, 255, 1)"
       />

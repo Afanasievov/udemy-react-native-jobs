@@ -1,19 +1,19 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 
-const welcome = () => (
-  <View>
-    <Text>Welcome screen</Text>
-    <Text>Welcome screen</Text>
-    <Text>Welcome screen</Text>
-    <Text>Welcome screen</Text>
-    <Text>Welcome screen</Text>
-    <Text>Welcome screen</Text>
-    <Text>Welcome screen</Text>
-    <Text>Welcome screen</Text>
-    <Text>Welcome screen</Text>
-    <Text>Welcome screen</Text>
-  </View>
-);
+import Slides from 'components/Slides/Slides';
+
+const SLIDE_DATA = [
+  { text: 'Welcome to JobApp', color: '#03A9F4' },
+  { text: 'Use this to get a job', color: '#009688' },
+  { text: 'Set your location, then swipe away', color: '#03A9F4' },
+];
+
+const welcome = ({ navigation }) => {
+  const onSlidesComplete = () => {
+    navigation.navigate('auth');
+  };
+
+  return <Slides data={SLIDE_DATA} onComplete={onSlidesComplete} />;
+};
 
 export default welcome;
