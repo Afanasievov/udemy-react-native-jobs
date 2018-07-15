@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
-const review = () => (
-  <View>
-    <Text>Review screen</Text>
-    <Text>Review screen</Text>
-    <Text>Review screen</Text>
-    <Text>Review screen</Text>
-    <Text>Review screen</Text>
-    <Text>Review screen</Text>
-    <Text>Review screen</Text>
-    <Text>Review screen</Text>
-    <Text>Review screen</Text>
-    <Text>Review screen</Text>
-  </View>
-);
+class Review extends Component {
+  static navigationOptions = {
+    title: 'Review Jobs',
+    headerRight: <Text>Go Right</Text>,
+  }
 
-export default review;
+  render() {
+    return (
+      <View>
+        <Text>Review screen</Text>
+        <Text>Review screen</Text>
+        <Text>Review screen</Text>
+        <Text>Review screen</Text>
+        <Text>Review screen</Text>
+        <Text>Review screen</Text>
+        <Text>Review screen</Text>
+        <Text>Review screen</Text>
+        <Text>Review screen</Text>
+        <Text>Review screen</Text>
+      </View>
+    );
+  }
+}
+
+export default Review;

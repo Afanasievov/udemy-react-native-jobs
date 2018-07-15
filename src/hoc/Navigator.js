@@ -1,9 +1,11 @@
-import { createBottomTabNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 
 import WelcomeScreen from 'screens/Welcome';
 import AuthScreen from 'screens/Auth';
 import MapScreen from 'screens/Map';
 import DeckScreen from 'screens/Deck';
+import ReviewScreen from 'screens/Review';
+import SettingsScreen from 'screens/Settings';
 
 export default createBottomTabNavigator({
   welcome: WelcomeScreen,
@@ -12,6 +14,10 @@ export default createBottomTabNavigator({
     screen: createBottomTabNavigator({
       map: MapScreen,
       deck: DeckScreen,
+      review: createStackNavigator({
+        review: ReviewScreen,
+        settings: SettingsScreen,
+      }),
     }),
   },
 });
