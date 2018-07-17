@@ -7,7 +7,9 @@
       "components/*": ["src/components/*"],
       "constants/*": ["src/constants/*"],
       "hoc/*": ["src/hoc/*"],
+      "reducers/*": ["src/reducers/*"],
       "screens/*": ["src/screens/*"],
+      "store/*": ["src/store/*"],
       "utils/*": ["src/utils/*"]
     }
   },

@@ -38,7 +38,9 @@
     "^components(.*)$": "<rootDir>/src/components$1",
     "^constants(.*)$": "<rootDir>/src/constants$1",
     "^hoc(.*)$": "<rootDir>/src/hoc$1",
+    "^reducers(.*)$": "<rootDir>/src/reducers$1",
     "^screens(.*)$": "<rootDir>/src/screens$1",
+    "^store(.*)$": "<rootDir>/src/store$1",
     "^utils(.*)$": "<rootDir>/src/utils$1"
   },
   "dependencies": {
@@ -46,6 +48,9 @@
     "react": "16.3.1",
     "react-native": "~0.55.2",
     "react-native-elements": "^0.19.1",
-    "react-navigation": "^2.6.2"
+    "react-navigation": "^2.6.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
   }
 }
