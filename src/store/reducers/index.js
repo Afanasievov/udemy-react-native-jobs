@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 
+import facebookAuth from './facebookAuth';
+
 export default combineReducers({
-  auth: () => ({}),
+  facebookAuth,
 });

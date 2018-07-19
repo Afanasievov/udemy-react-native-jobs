@@ -35,12 +35,15 @@
   },
   "jest": {
     "preset": "jest-expo",
+    "^actions(.*)$": "<rootDir>/src/store/actions$1",
     "^components(.*)$": "<rootDir>/src/components$1",
+    "^config(.*)$": "<rootDir>/src/config$1",
     "^constants(.*)$": "<rootDir>/src/constants$1",
     "^hoc(.*)$": "<rootDir>/src/hoc$1",
-    "^reducers(.*)$": "<rootDir>/src/reducers$1",
-    "^screens(.*)$": "<rootDir>/src/screens$1",
+    "^reducers(.*)$": "<rootDir>/src/store/reducers$1",
+    "^sagas(.*)$": "<rootDir>/src/store/sagas$1",
     "^store(.*)$": "<rootDir>/src/store$1",
+    "^screens(.*)$": "<rootDir>/src/screens$1",
     "^utils(.*)$": "<rootDir>/src/utils$1"
   },
   "dependencies": {
@@ -51,6 +54,6 @@
     "react-navigation": "^2.6.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-saga": "^0.16.0"
   }
 }

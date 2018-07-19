@@ -4,12 +4,15 @@
     "allowSyntheticDefaultImports": false,
     "baseUrl": "./",
     "paths": {
+      "actions/*": ["src/store/actions/*"],
       "components/*": ["src/components/*"],
+      "config/*": ["src/config/*"],
       "constants/*": ["src/constants/*"],
       "hoc/*": ["src/hoc/*"],
-      "reducers/*": ["src/reducers/*"],
-      "screens/*": ["src/screens/*"],
+      "reducers/*": ["src/store/reducers/*"],
+      "sagas/*": ["src/store/sagas/*"],
       "store/*": ["src/store/*"],
+      "screens/*": ["src/screens/*"],
       "utils/*": ["src/utils/*"]
     }
   },
