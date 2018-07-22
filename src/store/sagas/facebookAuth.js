@@ -1,13 +1,13 @@
 import { AsyncStorage } from 'react-native';
 import { Facebook } from 'expo';
-import { call, put } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
 
 import * as LS from 'constants/localStorage';
 import CONFIG from 'config';
 import * as actions from 'actions';
 
 export function* facebookLogin() { // eslint-disable-line
-  const lsToken = yield call([AsyncStorage, 'getItem'], LS.JOBS_FACEBOOK_TOKEN);
+  const lsToken = yield AsyncStorage.getItem(LS.JOBS_FACEBOOK_TOKEN);
 
   if (lsToken) {
     // Dispatch an action saying facebook login is done

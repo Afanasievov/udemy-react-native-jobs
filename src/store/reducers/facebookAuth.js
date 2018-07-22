@@ -2,17 +2,17 @@ import * as actionTypes from 'actions/actionTypes';
 
 export const initialState = {};
 
-const facebookAuthSuccess = (state, action) => ({
+const facebookLoginSuccess = (state, action) => ({
   ...state,
   token: action.token,
 });
 
-const facebookAuthFail = () => ({ token: null });
+const facebookLoginFail = state => ({ ...state, token: null });
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.FACEBOOK_LOGIN_SUCCESS: return facebookAuthSuccess(state, action);
-    case actionTypes.FACEBOOK_LOGIN_FAIL: return facebookAuthFail();
+    case actionTypes.FACEBOOK_LOGIN_SUCCESS: return facebookLoginSuccess(state, action.payload);
+    case actionTypes.FACEBOOK_LOGIN_FAIL: return facebookLoginFail(state);
     default:
       return state;
   }
