@@ -44,6 +44,7 @@
     "^sagas(.*)$": "<rootDir>/src/store/sagas$1",
     "^store(.*)$": "<rootDir>/src/store$1",
     "^screens(.*)$": "<rootDir>/src/screens$1",
+    "^services(.*)$": "<rootDir>/src/services$1",
     "^utils(.*)$": "<rootDir>/src/utils$1"
   },
   "dependencies": {

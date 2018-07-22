@@ -7,7 +7,7 @@ import DeckScreen from 'screens/Deck';
 import ReviewScreen from 'screens/Review';
 import SettingsScreen from 'screens/Settings';
 
-export default createBottomTabNavigator({
+export default createStackNavigator({
   welcome: WelcomeScreen,
   auth: AuthScreen,
   main: {
@@ -20,4 +20,5 @@ export default createBottomTabNavigator({
       }),
     }),
   },
-});
+},
+{ headerMode: 'none' });

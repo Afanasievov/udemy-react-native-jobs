@@ -13,6 +13,7 @@
       "sagas/*": ["src/store/sagas/*"],
       "store/*": ["src/store/*"],
       "screens/*": ["src/screens/*"],
+      "services/*": ["src/services/*"],
       "utils/*": ["src/utils/*"]
     }
   },

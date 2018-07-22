@@ -1,24 +1,18 @@
 import * as actionTypes from 'actions/actionTypes';
 
-export const initialState = {
-  token: null,
-  userId: null,
-  error: null,
-  loading: false,
-};
+export const initialState = {};
 
 const facebookAuthSuccess = (state, action) => ({
   ...state,
-  token: action.idToken,
-  userId: action.userId,
-  error: null,
-  loading: false,
+  token: action.token,
 });
+
+const facebookAuthFail = () => ({ token: null });
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FACEBOOK_LOGIN_SUCCESS: return facebookAuthSuccess(state, action);
-    // case actionTypes.FACEBOOK_LOGIN_FAIL: return facebookAuthFail(state, action);
+    case actionTypes.FACEBOOK_LOGIN_FAIL: return facebookAuthFail();
     default:
       return state;
   }
