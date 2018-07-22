@@ -7,16 +7,18 @@ import DeckScreen from 'screens/Deck';
 import ReviewScreen from 'screens/Review';
 import SettingsScreen from 'screens/Settings';
 
+import * as SCREENS from 'constants/screens';
+
 export default createStackNavigator({
-  welcome: WelcomeScreen,
-  auth: AuthScreen,
-  main: {
+  [SCREENS.WELCOME]: WelcomeScreen,
+  [SCREENS.AUTH]: AuthScreen,
+  [SCREENS.MAIN]: {
     screen: createBottomTabNavigator({
-      map: MapScreen,
-      deck: DeckScreen,
-      review: createStackNavigator({
-        review: ReviewScreen,
-        settings: SettingsScreen,
+      [SCREENS.MAP]: MapScreen,
+      [SCREENS.DECK]: DeckScreen,
+      [SCREENS.REVIEW]: createStackNavigator({
+        [SCREENS.REVIEW]: ReviewScreen,
+        [SCREENS.SETTINGS]: SettingsScreen,
       }),
     }),
   },

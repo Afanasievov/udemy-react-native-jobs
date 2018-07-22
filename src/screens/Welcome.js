@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Slides from 'components/Slides/Slides';
+import * as SCREENS from 'constants/screens';
 
 const SLIDE_DATA = [
   { text: 'Welcome to JobApp', color: '#03A9F4' },
@@ -10,7 +11,7 @@ const SLIDE_DATA = [
 
 const welcome = ({ navigation }) => {
   const onSlidesComplete = () => {
-    navigation.navigate('auth');
+    navigation.navigate(SCREENS.AUTH);
   };
 
   return <Slides data={SLIDE_DATA} onComplete={onSlidesComplete} />;
