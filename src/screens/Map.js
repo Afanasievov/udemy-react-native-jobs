@@ -1,18 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { MapView } from 'expo';
 
 const map = () => (
-  <View>
-    <Text>Map screen</Text>
-    <Text>Map screen</Text>
-    <Text>Map screen</Text>
-    <Text>Map screen</Text>
-    <Text>Map screen</Text>
-    <Text>Map screen</Text>
-    <Text>Map screen</Text>
-    <Text>Map screen</Text>
-    <Text>Map screen</Text>
-    <Text>Map screen</Text>
+  <View style={{ flex: 1 }}>
+    <MapView style={{ flex: 1 }} />
   </View>
 );
 

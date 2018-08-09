@@ -32,7 +32,7 @@ class Welcome extends Component {
   };
 
   render() {
-    if (_.siNull(this.state.token)) {
+    if (_.isNull(this.state.token)) {
       return <AppLoading />;
     }
     return <Slides data={SLIDE_DATA} onComplete={this.onSlidesComplete} />;
