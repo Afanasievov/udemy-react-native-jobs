@@ -1,11 +1,39 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, { Component } from 'react';
+import { View, ActivityIndicator } from 'react-native';
 import { MapView } from 'expo';
 
-const map = () => (
-  <View style={{ flex: 1 }}>
-    <MapView style={{ flex: 1 }} />
-  </View>
-);
+class Map extends Component {
+  state = {
+    mapLoaded: false,
+    region: {
+      longitude: -122,
+      latitude: 37,
+      longitudeDelta: 0.04,
+      latitudeDelta: 0.09,
+    },
+  }
 
-export default map;
+  componentDidMount() {
+    this.setState({ mapLoaded: true });
+  }
+
+  render() {
+    if (!this.state.mapLoaded) {
+      return (
+        <View style={{ flex: 1, justifyContent: 'center' }}>
+          <ActivityIndicator size="large" />
+        </View>
+      );
+    }
+    return (
+      <View style={{ flex: 1 }}>
+        <MapView
+          region={this.state.region}
+          style={{ flex: 1 }}
+        />
+      </View>
+    );
+  }
+}
+
+export default Map;
