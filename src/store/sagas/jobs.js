@@ -20,10 +20,13 @@ const buildJobsUrl = (zip) => {
   return `${jobRootUrl}${query}`;
 };
 
-export function* fetchJobs(region) { // eslint-disable-line
+export function* fetchJobs({ payload: region }) { // eslint-disable-line
+  console.log('region: ', region);
   try {
     const zip = yield reverseGeocode(region);
+    console.log('zip: ', zip);
     const url = buildJobsUrl(zip);
+    console.log('url: ', url);
     const { data } = yield axios.get(url);
     console.log('data: ', data);
 

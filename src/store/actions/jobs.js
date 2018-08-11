@@ -1,7 +1,8 @@
 import * as actionTypes from 'actions/actionTypes';
 
-export const fetchJobs = () => ({
+export const fetchJobs = region => ({
   type: actionTypes.FETCH_JOBS,
+  payload: region,
 });
 
 export const fetchJobsSuccess = jobs => ({

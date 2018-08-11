@@ -2,7 +2,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 import reducers from 'reducers';
-import { watchFacebookAuth } from 'sagas';
+import { watchFacebookAuth, watchJobs } from 'sagas/index';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -12,5 +12,6 @@ const store = createStore(
 );
 
 sagaMiddleware.run(watchFacebookAuth);
+sagaMiddleware.run(watchJobs);
 
 export default store;
