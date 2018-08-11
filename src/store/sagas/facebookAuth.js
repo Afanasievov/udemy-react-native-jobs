@@ -3,8 +3,8 @@ import { Facebook } from 'expo';
 import { put } from 'redux-saga/effects';
 
 import * as LS from 'constants/localStorage';
-import CONFIG from 'config';
-import * as actions from 'actions';
+import CONFIG from 'config/index';
+import * as actions from 'actions/index';
 
 export function* facebookLogin() { // eslint-disable-line
   const lsToken = yield AsyncStorage.getItem(LS.JOBS_FACEBOOK_TOKEN);

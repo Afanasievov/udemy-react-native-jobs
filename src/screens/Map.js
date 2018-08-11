@@ -17,6 +17,10 @@ class Map extends Component {
     this.setState({ mapLoaded: true });
   }
 
+  onRegionChangeComplete = (region) => {
+    this.setState({ region });
+  }
+
   render() {
     if (!this.state.mapLoaded) {
       return (
@@ -28,8 +32,9 @@ class Map extends Component {
     return (
       <View style={{ flex: 1 }}>
         <MapView
-          region={this.state.region}
           style={{ flex: 1 }}
+          region={this.state.region}
+          onRegionChangeComplete={this.onRegionChangeComplete}
         />
       </View>
     );
