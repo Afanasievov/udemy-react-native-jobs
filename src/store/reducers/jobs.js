@@ -1,7 +1,9 @@
 import * as actionTypes from 'actions/actionTypes';
 
 export const initialState = {
-  results: [],
+  results: {
+    results: [],
+  },
 };
 
 const fetchJobsSuccess = (state, action) => ({
@@ -11,7 +13,7 @@ const fetchJobsSuccess = (state, action) => ({
 
 const fetchJobsFail = state => ({
   ...state,
-  results: [],
+  ...initialState,
 });
 
 const reducer = (state = initialState, action) => {
