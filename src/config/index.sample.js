@@ -9,10 +9,12 @@ const getEnvVars = () => {
     case 'production':
       return {
         FACEBOOK_APP_ID: 'APP_ID',
+        INDEED_PUBLISHER: 'ID',
       };
     default: // development
       return {
         FACEBOOK_APP_ID: 'APP_ID',
+        INDEED_PUBLISHER: 'ID',
       };
   }
 };

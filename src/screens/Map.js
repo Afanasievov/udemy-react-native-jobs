@@ -4,7 +4,7 @@ import { MapView } from 'expo';
 import { connect } from 'react-redux';
 import { Button } from 'react-native-elements';
 
-import * as actions from 'actions/index';
+import * as ACTIONS from 'actions/index';
 
 const styles = {
   buttonContainer: {
@@ -67,4 +67,4 @@ class Map extends Component {
   }
 }
 
-export default connect(null, actions)(Map);
+export default connect(null, ACTIONS)(Map);

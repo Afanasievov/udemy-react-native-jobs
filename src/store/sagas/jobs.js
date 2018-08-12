@@ -3,11 +3,17 @@ import reverseGeocode from 'latlng-to-zip';
 import qs from 'qs';
 import { put } from 'redux-saga/effects';
 
-import * as actions from 'actions/index';
+import navigationService from 'services/navigator/service';
+
+import * as CONFIG from 'config/index';
+import * as ACTIONS from 'actions/index';
+import * as SCREENS from 'constants/screens';
+
+import jobsMock from './jobsMock';
 
 const jobRootUrl = 'http://api.indeed.com/ads/apisearch?';
 const jobQueryParams = {
-  publisher: '4201738803816157',
+  publisher: CONFIG.INDEED_PUBLISHER,
   format: 'json',
   v: '2',
   latlong: 1,
@@ -21,17 +27,26 @@ const buildJobsUrl = (zip) => {
 };
 
 export function* fetchJobs({ payload: region }) { // eslint-disable-line
-  console.log('region: ', region);
-  try {
-    const zip = yield reverseGeocode(region);
-    console.log('zip: ', zip);
-    const url = buildJobsUrl(zip);
-    console.log('url: ', url);
-    const { data } = yield axios.get(url);
-    console.log('data: ', data);
+  let zip;
 
-    put(actions.fetchJobsSuccess({ jobs: data }));
+  try {
+    zip = yield reverseGeocode(region);
   } catch (err) {
-    console.log('err: ', err);
+    console.log('Reverse Geocode err: ', err);
   }
+
+  const url = buildJobsUrl(zip);
+
+  let { data } = yield axios.get(url);
+
+  // if indeed publisher id is incorrect mock the response
+  if (data.error && data.error === 'Invalid publisher number provided.') {
+    console.log('<<< Invalid publisher number provided. Load mock-data. >>>');
+    data = jobsMock;
+  }
+
+  yield put(ACTIONS.fetchJobsSuccess({ payload: data }));
+
+  // navigate to the 'deck' screen
+  yield navigationService.navigate(SCREENS.DECK);
 }
