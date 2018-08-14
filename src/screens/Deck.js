@@ -46,7 +46,9 @@ class Deck extends Component {
     );
   }
 
-  renderNoMoreCards = () => <Card title="No more jobs" />;
+  // return null due to the crushes of the app
+  renderNoMoreCards = () => null;
+  // renderNoMoreCards = () => <Card title="No more jobs" />;
 
   render() {
     return (
