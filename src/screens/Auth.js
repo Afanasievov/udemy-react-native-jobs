@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 
-import * as ACTIONS from 'actions/index';
+import * as actions from 'actions/index';
 import * as SCREENS from 'constants/screens';
 
 class Auth extends Component {
@@ -43,4 +43,4 @@ const mapStateToProps = state => ({
   token: state.facebookAuth.token,
 });
 
-export default connect(mapStateToProps, ACTIONS)(Auth);
+export default connect(mapStateToProps, actions)(Auth);

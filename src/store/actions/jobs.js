@@ -19,3 +19,7 @@ export const likeJob = job => ({
   type: ACTION_TYPES.LIKE_JOB,
   payload: job,
 });
+
+export const clearLikedJobs = () => console.log('actions') || ({
+  type: ACTION_TYPES.CLEAR_LIKED_JOBS,
+});

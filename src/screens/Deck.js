@@ -5,7 +5,7 @@ import { MapView } from 'expo';
 import { Card } from 'react-native-elements';
 
 import Swipe from 'components/Swipe/Swipe';
-import * as ACTIONS from 'actions/index';
+import * as actions from 'actions/index';
 
 const styles = {
   detailWrapper: {
@@ -70,4 +70,4 @@ const mapStateToProps = ({ jobs }) => ({
   jobs: jobs.results,
 });
 
-export default connect(mapStateToProps, ACTIONS)(Deck);
+export default connect(mapStateToProps, actions)(Deck);

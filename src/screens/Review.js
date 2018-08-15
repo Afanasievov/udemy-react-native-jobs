@@ -10,6 +10,7 @@ import { Card, Button } from 'react-native-elements';
 import { MapView } from 'expo';
 import { connect } from 'react-redux';
 
+import * as SCREENS from 'constants/screens';
 
 const styles = {
   detailWrapper: {
@@ -29,7 +30,7 @@ class Review extends Component {
     headerRight: (
       <Button
         title="Settings"
-        onPress={() => navigation.navigate('settings')}
+        onPress={() => navigation.navigate(SCREENS.SETTINGS)}
         backgroundColor="rgba(0,0,0,0)"
         color="rgba(0, 122, 255, 1)"
       />

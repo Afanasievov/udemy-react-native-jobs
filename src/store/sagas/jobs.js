@@ -6,7 +6,7 @@ import { put } from 'redux-saga/effects';
 import navigationService from 'services/navigator/service';
 
 import * as CONFIG from 'config/index';
-import * as ACTIONS from 'actions/index';
+import * as actions from 'actions/index';
 import * as SCREENS from 'constants/screens';
 
 import jobsMock from './jobsMock';
@@ -45,7 +45,7 @@ export function* fetchJobs({ payload: region }) { // eslint-disable-line
     data = jobsMock;
   }
 
-  yield put(ACTIONS.fetchJobsSuccess(data));
+  yield put(actions.fetchJobsSuccess(data));
 
   // navigate to the 'deck' screen
   yield navigationService.navigate(SCREENS.DECK);

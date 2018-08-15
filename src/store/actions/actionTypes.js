@@ -6,3 +6,4 @@ export const FETCH_JOBS = 'FETCH_JOBS';
 export const FETCH_JOBS_SUCCESS = 'FETCH_JOBS_SUCCESS';
 export const FETCH_JOBS_FAIL = 'FETCH_JOBS_FAIL';
 export const LIKE_JOB = 'LIKE_JOB';
+export const CLEAR_LIKED_JOBS = 'CLEAR_LIKED_JOBS';

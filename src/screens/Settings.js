@@ -1,19 +1,20 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { Button } from 'react-native-elements';
+import { connect } from 'react-redux';
 
-const settings = () => (
+import { clearLikedJobs } from 'actions/index';
+
+const settings = props => (
   <View>
-    <Text>Setting screen</Text>
-    <Text>Setting screen</Text>
-    <Text>Setting screen</Text>
-    <Text>Setting screen</Text>
-    <Text>Setting screen</Text>
-    <Text>Setting screen</Text>
-    <Text>Setting screen</Text>
-    <Text>Setting screen</Text>
-    <Text>Setting screen</Text>
-    <Text>Setting screen</Text>
+    <Button
+      title="Reset Liked Jobs"
+      large
+      icon={{ name: 'delete-forever' }}
+      backgroundColor="#F44336"
+      onPress={props.clearLikedJobs}
+    />
   </View>
 );
 
-export default settings;
+export default connect(null, { clearLikedJobs })(settings);
