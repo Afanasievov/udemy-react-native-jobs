@@ -1,15 +1,15 @@
-import * as actionTypes from 'actions/actionTypes';
+import * as ACTION_TYPES from 'actions/actionTypes';
 
 export const facebookLogin = () => ({
-  type: actionTypes.FACEBOOK_LOGIN,
+  type: ACTION_TYPES.FACEBOOK_LOGIN,
 });
 
 export const facebookLoginSuccess = token => ({
-  type: actionTypes.FACEBOOK_LOGIN_SUCCESS,
+  type: ACTION_TYPES.FACEBOOK_LOGIN_SUCCESS,
   payload: token,
 });
 
 export const facebookLoginFail = error => ({
-  type: actionTypes.FACEBOOK_LOGIN_FAIL,
+  type: ACTION_TYPES.FACEBOOK_LOGIN_FAIL,
   payload: error,
 });

@@ -1,16 +1,21 @@
-import * as actionTypes from 'actions/actionTypes';
+import * as ACTION_TYPES from 'actions/actionTypes';
 
 export const fetchJobs = region => ({
-  type: actionTypes.FETCH_JOBS,
+  type: ACTION_TYPES.FETCH_JOBS,
   payload: region,
 });
 
 export const fetchJobsSuccess = jobs => ({
-  type: actionTypes.FETCH_JOBS_SUCCESS,
+  type: ACTION_TYPES.FETCH_JOBS_SUCCESS,
   payload: jobs,
 });
 
 export const fetchJobsFail = error => ({
-  type: actionTypes.FETCH_JOBS_FAIL,
+  type: ACTION_TYPES.FETCH_JOBS_FAIL,
   payload: error,
+});
+
+export const likeJob = job => ({
+  type: ACTION_TYPES.LIKE_JOB,
+  payload: job,
 });

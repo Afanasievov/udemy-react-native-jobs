@@ -1,25 +1,32 @@
-import * as actionTypes from 'actions/actionTypes';
+import _ from 'lodash';
+
+import * as ACTION_TYPES from 'actions/actionTypes';
 
 export const initialState = {
-  results: {
-    results: [],
-  },
+  results: [],
+  liked: [],
 };
 
 const fetchJobsSuccess = (state, action) => ({
   ...state,
-  results: action.payload,
+  results: action.payload.results,
 });
 
-const fetchJobsFail = state => ({
+// const fetchJobsFail = state => ({
+//   ...state,
+//   ...initialState,
+// });
+
+const likeJob = (state, action) => ({
   ...state,
-  ...initialState,
+  liked: _.uniqBy([action.payload, ...state.liked], 'jobkey'),
 });
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.FETCH_JOBS_SUCCESS: return fetchJobsSuccess(state, action.payload);
-    case actionTypes.FETCH_JOBS_FAIL: return fetchJobsFail(state, action.payload);
+    case ACTION_TYPES.FETCH_JOBS_SUCCESS: return fetchJobsSuccess(state, action);
+    // case ACTION_TYPES.FETCH_JOBS_FAIL: return fetchJobsFail(state, action);
+    case ACTION_TYPES.LIKE_JOB: return likeJob(state, action);
     default:
       return state;
   }

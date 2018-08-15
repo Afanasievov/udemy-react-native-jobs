@@ -1,7 +1,27 @@
 import React, { Component } from 'react';
-import { View, Text, Platform } from 'react-native';
+import {
+  ScrollView,
+  View,
+  Text,
+  Platform,
+  Linking,
+} from 'react-native';
+import { Card, Button } from 'react-native-elements';
+import { MapView } from 'expo';
+import { connect } from 'react-redux';
 
-import { Button } from 'react-native-elements';
+
+const styles = {
+  detailWrapper: {
+    marginTop: 10,
+    marginBottom: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  italics: {
+    fontStyle: 'italic',
+  },
+};
 
 class Review extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -19,22 +39,59 @@ class Review extends Component {
     },
   })
 
+  renderLikedJobs() {
+    return this.props.likedJobs.map((job) => {
+      const {
+        company,
+        jobtitle,
+        formattedRelativeTime,
+        url,
+        jobkey,
+        longitude,
+        latitude,
+      } = job;
+      const initialRegion = {
+        longitude,
+        latitude,
+        longitudeDelta: 0.045,
+        latitudeDelta: 0.02,
+      };
+
+      return (
+        <Card key={jobkey} title={jobtitle}>
+          <View style={{ height: 200 }}>
+            <MapView
+              style={{ flex: 1 }}
+              cacheEnabled={Platform.OS === 'android'}
+              scrollEnabled={false}
+              initialRegion={initialRegion}
+            />
+            <View style={styles.detailWrapper}>
+              <Text style={styles.italics}>{company}</Text>
+              <Text style={styles.italics}>{formattedRelativeTime}</Text>
+            </View>
+            <Button
+              title="Apply Now!"
+              backgroundColor="#03A9F4"
+              onPress={() => Linking.openURL(url)}
+            />
+          </View>
+        </Card>
+      );
+    });
+  }
+
   render() {
     return (
-      <View>
-        <Text>Review screen</Text>
-        <Text>Review screen</Text>
-        <Text>Review screen</Text>
-        <Text>Review screen</Text>
-        <Text>Review screen</Text>
-        <Text>Review screen</Text>
-        <Text>Review screen</Text>
-        <Text>Review screen</Text>
-        <Text>Review screen</Text>
-        <Text>Review screen</Text>
-      </View>
+      <ScrollView>
+        {this.renderLikedJobs()}
+      </ScrollView>
     );
   }
 }
 
-export default Review;
+const mapStateToProps = state => ({
+  likedJobs: state.jobs.liked,
+});
+
+export default connect(mapStateToProps)(Review);

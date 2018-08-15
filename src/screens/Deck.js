@@ -5,6 +5,7 @@ import { MapView } from 'expo';
 import { Card } from 'react-native-elements';
 
 import Swipe from 'components/Swipe/Swipe';
+import * as ACTIONS from 'actions/index';
 
 const styles = {
   detailWrapper: {
@@ -31,7 +32,7 @@ class Deck extends Component {
           <MapView
             scrollEnabled={false}
             style={{ flex: 1 }}
-            cacheEnabled={Platform.OS === 'ios' && false}
+            cacheEnabled={Platform.OS === 'android'}
             initialRegion={initialRegion}
           />
         </View>
@@ -57,6 +58,7 @@ class Deck extends Component {
           data={this.props.jobs}
           renderCard={this.renderCard}
           renderNoMoreCards={this.renderNoMoreCards}
+          onSwipeRight={job => this.props.likeJob(job)}
           keyProp="jobkey"
         />
       </View>
@@ -65,7 +67,7 @@ class Deck extends Component {
 }
 
 const mapStateToProps = ({ jobs }) => ({
-  jobs: jobs.results.results,
+  jobs: jobs.results,
 });
 
-export default connect(mapStateToProps)(Deck);
+export default connect(mapStateToProps, ACTIONS)(Deck);

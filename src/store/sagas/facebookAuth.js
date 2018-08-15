@@ -4,14 +4,14 @@ import { put } from 'redux-saga/effects';
 
 import * as LS from 'constants/localStorage';
 import CONFIG from 'config/index';
-import * as actions from 'actions/index';
+import * as ACTIONS from 'actions/index';
 
 export function* facebookLogin() { // eslint-disable-line
   const lsToken = yield AsyncStorage.getItem(LS.JOBS_FACEBOOK_TOKEN);
 
   if (lsToken) {
     // Dispatch an action saying facebook login is done
-    yield put(actions.facebookLoginSuccess({ token: lsToken }));
+    yield put(ACTIONS.facebookLoginSuccess({ token: lsToken }));
   } else {
     // Start up facebook Login process
     const { type, token } = yield Facebook.logInWithReadPermissionsAsync(
@@ -20,10 +20,10 @@ export function* facebookLogin() { // eslint-disable-line
     );
 
     if (type === 'cancel') {
-      yield put(actions.facebookLoginFail());
+      yield put(ACTIONS.facebookLoginFail());
     }
 
     yield AsyncStorage.setItem(LS.JOBS_FACEBOOK_TOKEN, token);
-    yield put(actions.facebookLoginSuccess(token));
+    yield put(ACTIONS.facebookLoginSuccess(token));
   }
 }

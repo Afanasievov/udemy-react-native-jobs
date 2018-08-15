@@ -45,7 +45,7 @@ export function* fetchJobs({ payload: region }) { // eslint-disable-line
     data = jobsMock;
   }
 
-  yield put(ACTIONS.fetchJobsSuccess({ payload: data }));
+  yield put(ACTIONS.fetchJobsSuccess(data));
 
   // navigate to the 'deck' screen
   yield navigationService.navigate(SCREENS.DECK);
