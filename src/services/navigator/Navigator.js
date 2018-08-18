@@ -1,4 +1,6 @@
+import React from 'react';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import { Icon } from 'react-native-elements';
 
 import WelcomeScreen from 'screens/Welcome';
 import AuthScreen from 'screens/Auth';
@@ -16,10 +18,26 @@ export default createStackNavigator({
     screen: createBottomTabNavigator({
       [SCREENS.MAP]: MapScreen,
       [SCREENS.DECK]: DeckScreen,
-      [SCREENS.REVIEW]: createStackNavigator({
-        [SCREENS.REVIEW]: ReviewScreen,
-        [SCREENS.SETTINGS]: SettingsScreen,
-      }),
+      [SCREENS.REVIEW]: {
+        screen: createStackNavigator({
+          [SCREENS.REVIEW]: {
+            screen: ReviewScreen,
+            navigationOptions: () => ({
+              title: 'Review Jobs',
+            }),
+          },
+          [SCREENS.SETTINGS]: SettingsScreen,
+        }),
+        navigationOptions: () => ({
+          title: 'Review Jobs',
+          tabBarIcon: ({ tintColor }) => <Icon name="favorite" size={30} color={tintColor} />,
+        }),
+      },
+    },
+    {
+      tabBarOptions: {
+        labelStyle: { fontSize: 12 },
+      },
     }),
   },
 },

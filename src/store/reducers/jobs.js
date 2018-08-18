@@ -22,7 +22,7 @@ const likeJob = (state, action) => ({
   liked: _.uniqBy([action.payload, ...state.liked], 'jobkey'),
 });
 
-const clearLikedJobs = state => ({
+const clearLikedJobsArray = state => ({
   ...state,
   liked: [],
 });
@@ -32,7 +32,7 @@ const reducer = (state = initialState, action) => {
     case ACTION_TYPES.FETCH_JOBS_SUCCESS: return fetchJobsSuccess(state, action);
     // case ACTION_TYPES.FETCH_JOBS_FAIL: return fetchJobsFail(state, action);
     case ACTION_TYPES.LIKE_JOB: return likeJob(state, action);
-    case ACTION_TYPES.CLEAR_LIKED_JOBS: return clearLikedJobs(state);
+    case ACTION_TYPES.CLEAR_LIKED_JOBS_ARRAY: return clearLikedJobsArray(state);
     default:
       return state;
   }

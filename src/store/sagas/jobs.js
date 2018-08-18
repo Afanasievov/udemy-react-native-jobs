@@ -26,7 +26,7 @@ const buildJobsUrl = (zip) => {
   return `${jobRootUrl}${query}`;
 };
 
-export function* fetchJobs({ payload: region }) { // eslint-disable-line
+export function* fetchJobs({ payload: region }) {
   let zip;
 
   try {
@@ -49,4 +49,13 @@ export function* fetchJobs({ payload: region }) { // eslint-disable-line
 
   // navigate to the 'deck' screen
   yield navigationService.navigate(SCREENS.DECK);
+}
+
+export function* clearLikedJobs() {
+  try {
+    yield put(actions.clearLikedJobsArray());
+  } catch (err) {
+    console.log('err: ', err);
+  }
+  yield navigationService.navigate(SCREENS.MAP);
 }

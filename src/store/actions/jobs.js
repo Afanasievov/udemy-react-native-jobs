@@ -20,6 +20,10 @@ export const likeJob = job => ({
   payload: job,
 });
 
-export const clearLikedJobs = () => console.log('actions') || ({
+export const clearLikedJobs = () => ({
   type: ACTION_TYPES.CLEAR_LIKED_JOBS,
+});
+
+export const clearLikedJobsArray = () => ({
+  type: ACTION_TYPES.CLEAR_LIKED_JOBS_ARRAY,
 });
