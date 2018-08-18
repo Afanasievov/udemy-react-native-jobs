@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { clearLikedJobs } from 'actions/index';
 
 const settings = props => (
-  <View>
+  <View style={{ marginTop: 10 }}>
     <Button
       title="Reset Liked Jobs"
       large

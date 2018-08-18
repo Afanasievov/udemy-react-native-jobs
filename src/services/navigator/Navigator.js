@@ -35,6 +35,7 @@ export default createStackNavigator({
       },
     },
     {
+      tabBarPosition: 'bottom',
       tabBarOptions: {
         labelStyle: { fontSize: 12 },
       },
